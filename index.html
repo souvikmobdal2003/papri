@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Pari ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Poppins',sans-serif;
+  background: radial-gradient(circle at top, #ff4f81, #0b0f2b);
+  color:white;
+  overflow-x:hidden;
+}
+
+/* floating hearts */
+.heart{
+  position:fixed;
+  width:10px;height:10px;
+  background:#ff4f81;
+  transform:rotate(45deg);
+  animation: float 8s linear infinite;
+  z-index:0;
+}
+.heart::before,.heart::after{
+  content:'';
+  width:10px;height:10px;
+  background:#ff4f81;
+  border-radius:50%;
+  position:absolute;
+}
+.heart::before{top:-5px;left:0;}
+.heart::after{left:-5px;top:0;}
+@keyframes float{
+  0%{bottom:-10px;opacity:0;}
+  10%{opacity:1;}
+  100%{bottom:110%;transform:translateX(100px) rotate(45deg);}
+}
+
+/* hero */
+.hero{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  text-align:center;
+}
+.glass{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(15px);
+  border-radius:20px;
+  padding:40px 25px;
+  max-width:500px;
+  width:100%;
+  box-shadow:0 0 60px rgba(255,79,129,0.5);
+}
+.glass h1{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;
+  background:linear-gradient(90deg,#ff8fb3,#fff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.type{
+  margin-top:15px;
+  min-height:60px;
+  font-size:1.05rem;
+  color:#ffdbe6;
+}
+button{
+  margin-top:20px;
+  padding:12px 26px;
+  border:none;
+  border-radius:30px;
+  background:#ff4f81;
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  box-shadow:0 0 20px #ff4f81;
+}
+
+/* cards */
+.section{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:30px 20px;
+}
+.card{
+  max-width:450px;
+  width:100%;
+  background:rgba(255,255,255,0.07);
+  backdrop-filter:blur(15px);
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 0 40px rgba(255,255,255,0.1);
+}
+.card h2{
+  font-family:'Playfair Display',serif;
+  color:#ff8fb3;
+  margin-bottom:12px;
+}
+.hidden{display:none}
+
+/* final */
+.final{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+.final h1{
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;
+  color:#ff8fb3;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%,100%{text-shadow:0 0 10px #ff4f81;}
+  50%{text-shadow:0 0 30px #ff4f81;}
+}
+</style>
+</head>
+
+<body>
+
+<script>
+/* hearts */
+for(let i=0;i<25;i++){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=5+Math.random()*5+"s";
+  document.body.appendChild(h);
+}
+
+/* typewriter */
+const text = [
+ "This is not just a page.",
+ "It is my heart, slowly opening to you.",
+ "Every glow, every word, every pause...",
+ "Is how much you mean to me, Pari."
+];
+let i=0,j=0;
+const speed=50;
+const el=document.getElementById("type");
+
+function type(){
+  if(i<text.length){
+    if(j<text[i].length){
+      el.innerHTML += text[i][j];
+      j++;
+      setTimeout(type,speed);
+    }else{
+      el.innerHTML += "<br>";
+      j=0;i++;
+      setTimeout(type,500);
+    }
+  }
+}
+
+/* reveal */
+function reveal(id){
+  document.getElementById(id).classList.toggle("hidden");
+}
+
+/* heart burst */
+document.addEventListener("click",e=>{
+  let b=document.createElement("div");
+  b.className="heart";
+  b.style.left=e.clientX+"px";
+  b.style.bottom="0";
+  b.style.animationDuration="2s";
+  document.body.appendChild(b);
+  setTimeout(()=>b.remove(),2000);
+});
+
+window.onload=type;
+</script>
+
+<div class="hero">
+  <div class="glass">
+    <h1>Pari ❤️</h1>
+    <div id="type" class="type"></div>
+    <button onclick="document.getElementById('s1').scrollIntoView({behavior:'smooth'})">
+      Continue
+    </button>
+  </div>
+</div>
+
+<div class="section" id="s1">
+  <div class="card">
+    <h2>You Are My Calm</h2>
+    <p>Tap to reveal</p>
+    <button onclick="reveal('a1')">Open</button>
+    <p id="a1" class="hidden">
+      When everything feels heavy, your name feels light.
+      You make silence beautiful.
+    </p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="card">
+    <h2>You Are My Strength</h2>
+    <button onclick="reveal('a2')">Reveal</button>
+    <p id="a2" class="hidden">
+      You make me want to be better, dream bigger, live fuller.
+    </p>
+  </div>
+</div>
+
+<div class="final">
+  <div>
+    <h1>I Love You, Pari 💖</h1>
+    <p>Will you be my Valentine?</p>
+  </div>
+</div>
+
+</body>
+</html>
