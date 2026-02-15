@@ -9,12 +9,18 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;}
 body{
   font-family:'Poppins',sans-serif;
   background: radial-gradient(circle at top, #ff4f81, #0b0f2b);
   color:white;
   overflow-x:hidden;
 }
+
+/* fluid text */
+h1{font-size:clamp(2rem,5vw,2.8rem);}
+h2{font-size:clamp(1.4rem,4vw,1.8rem);}
+p{font-size:clamp(0.95rem,2.8vw,1.05rem);line-height:1.7;}
 
 /* floating hearts */
 .heart{
@@ -45,7 +51,7 @@ body{
   min-height:100vh;
   display:flex;
   justify-content:center;
-  alignments:center;
+  align-items:center;
   padding:20px;
   text-align:center;
 }
@@ -53,19 +59,13 @@ body{
   background:rgba(255,255,255,0.08);
   backdrop-filter:blur(16px);
   border-radius:22px;
-  padding:45px 30px;
+  padding:clamp(28px,6vw,45px);
   max-width:520px;
   width:100%;
   box-shadow:0 0 60px rgba(255,79,129,0.5);
-  animation:fadeUp 1.5s ease;
-}
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px);}
-  to{opacity:1;transform:translateY(0);}
 }
 .glass h1{
   font-family:'Playfair Display',serif;
-  font-size:2.6rem;
   background:linear-gradient(90deg,#ff8fb3,#fff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -73,13 +73,13 @@ body{
 .type{
   margin-top:18px;
   min-height:70px;
-  font-size:1.05rem;
   color:#ffdbe6;
-  line-height:1.6;
 }
+
+/* buttons */
 button{
-  margin-top:25px;
-  padding:13px 30px;
+  margin-top:20px;
+  padding:14px 34px;
   border:none;
   border-radius:30px;
   background:#ff4f81;
@@ -87,24 +87,23 @@ button{
   font-size:1rem;
   cursor:pointer;
   box-shadow:0 0 20px #ff4f81;
-  transition:.3s;
+  min-width:180px;
 }
-button:hover{transform:scale(1.05);}
 
-/* cards */
+/* sections */
 .section{
   min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:40px 20px;
+  padding:clamp(20px,5vw,50px);
 }
 .card{
   max-width:460px;
   width:100%;
   background:rgba(255,255,255,0.07);
   backdrop-filter:blur(15px);
-  padding:35px 28px;
+  padding:clamp(22px,5vw,35px);
   border-radius:22px;
   text-align:center;
   box-shadow:0 0 40px rgba(255,255,255,0.1);
@@ -123,11 +122,10 @@ button:hover{transform:scale(1.05);}
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:20px;
+  padding:clamp(20px,5vw,50px);
 }
 .final h1{
   font-family:'Playfair Display',serif;
-  font-size:2.3rem;
   color:#ff8fb3;
   animation:pulse 2s infinite;
 }
@@ -223,7 +221,6 @@ window.onload=type;
 <div class="final">
   <div>
     <h1>Pari 💖</h1>
-
     <p>
       I may not be perfect, but I am real.
       I know how to take care of the things I love —
@@ -242,8 +239,10 @@ window.onload=type;
     </p>
 
     <p style="margin-top:20px;color:#ff8fb3;font-weight:600;">
-      This is not a moment. This is a promise. please be mine valentine for rest of my life  
-        </p>
+      This is not a moment. This is a promise 
+      <br>
+      Please Be my valemntine forever, Pari ❤️ since last 3 years i am waiting for this moment please accept my proposal 
+    </p>
   </div>
 </div>
 
