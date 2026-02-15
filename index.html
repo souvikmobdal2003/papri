@@ -5,7 +5,7 @@
 <title>For Pari ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -19,7 +19,7 @@ body{
 /* floating hearts */
 .heart{
   position:fixed;
-  width:10px;height:10px;
+  width:12px;height:12px;
   background:#ff4f81;
   transform:rotate(45deg);
   animation: float 8s linear infinite;
@@ -27,17 +27,17 @@ body{
 }
 .heart::before,.heart::after{
   content:'';
-  width:10px;height:10px;
+  width:12px;height:12px;
   background:#ff4f81;
   border-radius:50%;
   position:absolute;
 }
-.heart::before{top:-5px;left:0;}
-.heart::after{left:-5px;top:0;}
+.heart::before{top:-6px;left:0;}
+.heart::after{left:-6px;top:0;}
 @keyframes float{
   0%{bottom:-10px;opacity:0;}
   10%{opacity:1;}
-  100%{bottom:110%;transform:translateX(100px) rotate(45deg);}
+  100%{bottom:110%;transform:translateX(80px) rotate(45deg);}
 }
 
 /* hero */
@@ -45,35 +45,41 @@ body{
   min-height:100vh;
   display:flex;
   justify-content:center;
-  align-items:center;
+  alignments:center;
   padding:20px;
   text-align:center;
 }
 .glass{
   background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(15px);
-  border-radius:20px;
-  padding:40px 25px;
-  max-width:500px;
+  backdrop-filter:blur(16px);
+  border-radius:22px;
+  padding:45px 30px;
+  max-width:520px;
   width:100%;
   box-shadow:0 0 60px rgba(255,79,129,0.5);
+  animation:fadeUp 1.5s ease;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
 }
 .glass h1{
   font-family:'Playfair Display',serif;
-  font-size:2.5rem;
+  font-size:2.6rem;
   background:linear-gradient(90deg,#ff8fb3,#fff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 .type{
-  margin-top:15px;
-  min-height:60px;
+  margin-top:18px;
+  min-height:70px;
   font-size:1.05rem;
   color:#ffdbe6;
+  line-height:1.6;
 }
 button{
-  margin-top:20px;
-  padding:12px 26px;
+  margin-top:25px;
+  padding:13px 30px;
   border:none;
   border-radius:30px;
   background:#ff4f81;
@@ -81,7 +87,9 @@ button{
   font-size:1rem;
   cursor:pointer;
   box-shadow:0 0 20px #ff4f81;
+  transition:.3s;
 }
+button:hover{transform:scale(1.05);}
 
 /* cards */
 .section{
@@ -89,15 +97,15 @@ button{
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:30px 20px;
+  padding:40px 20px;
 }
 .card{
-  max-width:450px;
+  max-width:460px;
   width:100%;
   background:rgba(255,255,255,0.07);
   backdrop-filter:blur(15px);
-  padding:30px;
-  border-radius:20px;
+  padding:35px 28px;
+  border-radius:22px;
   text-align:center;
   box-shadow:0 0 40px rgba(255,255,255,0.1);
 }
@@ -119,7 +127,7 @@ button{
 }
 .final h1{
   font-family:'Playfair Display',serif;
-  font-size:2.2rem;
+  font-size:2.3rem;
   color:#ff8fb3;
   animation:pulse 2s infinite;
 }
@@ -133,7 +141,6 @@ button{
 <body>
 
 <script>
-/* hearts */
 for(let i=0;i<25;i++){
   let h=document.createElement("div");
   h.className="heart";
@@ -142,37 +149,33 @@ for(let i=0;i<25;i++){
   document.body.appendChild(h);
 }
 
-/* typewriter */
 const text = [
  "This is not just a page.",
  "It is my heart, slowly opening to you.",
- "Every glow, every word, every pause...",
+ "Every glow, every pause, every word...",
  "Is how much you mean to me, Pari."
 ];
 let i=0,j=0;
-const speed=50;
-const el=document.getElementById("type");
-
+const speed=45;
 function type(){
+  const el=document.getElementById("type");
   if(i<text.length){
     if(j<text[i].length){
-      el.innerHTML += text[i][j];
+      el.innerHTML+=text[i][j];
       j++;
       setTimeout(type,speed);
     }else{
-      el.innerHTML += "<br>";
+      el.innerHTML+="<br>";
       j=0;i++;
       setTimeout(type,500);
     }
   }
 }
 
-/* reveal */
 function reveal(id){
   document.getElementById(id).classList.toggle("hidden");
 }
 
-/* heart burst */
 document.addEventListener("click",e=>{
   let b=document.createElement("div");
   b.className="heart";
@@ -199,7 +202,6 @@ window.onload=type;
 <div class="section" id="s1">
   <div class="card">
     <h2>You Are My Calm</h2>
-    <p>Tap to reveal</p>
     <button onclick="reveal('a1')">Open</button>
     <p id="a1" class="hidden">
       When everything feels heavy, your name feels light.
@@ -220,8 +222,28 @@ window.onload=type;
 
 <div class="final">
   <div>
-    <h1>I Love You, Pari 💖</h1>
-    <p>Will you be my Valentine?</p>
+    <h1>Pari 💖</h1>
+
+    <p>
+      I may not be perfect, but I am real.
+      I know how to take care of the things I love —
+      and that includes you.
+    </p>
+
+    <p style="margin-top:15px;">
+      I am a good cook, a musician, a coder,
+      a marketer, and someone who knows how to turn ideas into reality.
+    </p>
+
+    <p style="margin-top:15px;">
+      I know you are a little lazy sometimes — and that’s okay.
+      I promise I will protect you, support you,
+      and take care of you for the rest of my life.
+    </p>
+
+    <p style="margin-top:20px;color:#ff8fb3;font-weight:600;">
+      This is not a moment. This is a promise. please be mine valentine for rest of my life  
+        </p>
   </div>
 </div>
 
